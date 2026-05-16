@@ -1,0 +1,154 @@
+/* Base Styles */
+body {
+    padding-bottom: 50px;
+}
+
+.Data {
+    color: #3B82F6;
+    font-weight: bold;
+}
+
+h1, h4 {
+    color: #1F3A8A;
+    margin: 0;
+}
+
+h4 {
+    padding-bottom: 5px;
+}
+
+/* Layout Containers */
+.OverallContainerDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px; /* Adds space on the sides for mobile */
+}
+
+.consentFormDiv,
+.RespondentsInformationDiv,
+.SurveyInstrumentsDiv,
+.DocumentationDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px; /* Replaces fixed 1300px */
+    margin-top: 25px;
+}
+
+.RespondentsInformationDiv a,
+.SurveyInstrumentsDiv a {
+    color: #3B82F6;
+}
+
+.RespondentsInformationDiv a:hover,
+.SurveyInstrumentsDiv a:hover {
+    font-weight: bold;
+    font-size: 15px;
+    font-style: italic;
+    color: #1F3A8A;
+}
+
+.consentFormDiv p {
+    color: black;
+    margin: 0;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Table Responsiveness */
+.RespondentsInformationDiv {
+    overflow-x: auto; /* Allows table to scroll sideways on tiny phones */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Prevents table from squishing too much */
+}
+
+th, td {
+    border: 1px solid #3B82F6;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #1F3A8A;
+    color: white;
+}
+
+td {
+    background-color: white;
+}
+
+/* Documentation Grid */
+.photodocuContainerDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 15px;
+    width: 100%;
+}
+
+.photodocuContainerDiv img {
+    width: 100%;
+    height: 295px;          /* fixed, not auto */
+    object-fit: cover;      /* cover, not fill */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+/* Survey Instrument Grids */
+.HEWgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.SUSgrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns on desktop */
+    gap: 10px;
+    padding: 20px 0;
+}
+
+.HEWgrid img, .SUSgrid img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .HEWgrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .SUSgrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    .photodocuContainerDiv {
+        grid-template-columns: 1fr; /* Stack images vertically */
+    }
+
+    .HEWgrid, .SUSgrid {
+        grid-template-columns: repeat(1, 1fr); /* Stack images vertically */
+    }
+
+    h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .consentFormDiv p {
+        font-size: 14px;
+    }
+}
